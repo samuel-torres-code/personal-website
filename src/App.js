@@ -1,6 +1,32 @@
 import './App.css';
+import ProjectCard from './components/ProjectCard';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
+    const projects = [
+        {
+            name: "KANM Student Radio",
+            picUrl: "kanm_logo.png",
+            url: "https://www.kanm.org/#/"
+        },
+        {
+            name :"POB Phoenix",
+            picUrl :"pob_phoenix.png",
+            url :"https://learned-poppy-54d.notion.site/POB-Phoenix-7f44e0416f77492cbc9fb6449376a30c"
+        },
+        {
+            name :"Torres Brothers Garage",
+            picUrl :"cobra.png",
+            url :"http://www.torresbrothers.com/"
+        },
+        {
+            name :"Home Media Server",
+            picUrl :"omv.png",
+            url :""
+        }
+    ]
   return (
     <div className="App">
       <div class="container">
@@ -46,51 +72,64 @@ function App() {
             </section>
             <section class="socials" id="socials">
                 <h2>Contact</h2>
-                <a href="mailto:someone@yoursite.com" target="_blank">Email</a>
-                <a href="https://github.com/samuel-torres-code" target="_blank">GitHub</a> 
-                <a href="https://www.linkedin.com/in/samuel-torres-7836711ba/" target="_blank">LinkedIn</a>
+                <a  href="mailto:someone@yoursite.com" target="_blank"> 
+                <FontAwesomeIcon className="margin-right-sm" icon={faPaperPlane}></FontAwesomeIcon> 
+                      Email me
+                </a>
+                
+                <a class="margin-left-md" href="https://github.com/samuel-torres-code" target="_blank"> 
+                <FontAwesomeIcon  className="margin-right-sm" icon={faGithub} ></FontAwesomeIcon> 
+                      samuel-torres-code
+                </a> 
+                <a  class="margin-left-md" href="https://www.linkedin.com/in/samuel-torres-7836711ba/" target="_blank" > 
+                <FontAwesomeIcon className="margin-right-sm" icon={faLinkedin}></FontAwesomeIcon> 
+                      Connect
+                </a>
             </section>
         </div>
         <div class="projectGrid">
-            <a class="card" href="https://www.kanm.org/#/" target="_blank">
-                <div class="polaroid">
-                    <img src="kanm_logo.png"/>
-                    <div class="caption">
-                        KANM Student Radio
-                    </div>
-                </div>
-            </a>
+            {projects.map(project => (
+                <ProjectCard name ={project.name} url = {project.url} picUrl= {project.picUrl}>
+
+                </ProjectCard>
+            ))}
             
-            <a class="card" href="https://learned-poppy-54d.notion.site/POB-Phoenix-7f44e0416f77492cbc9fb6449376a30c" target="_blank">
-                <div class="polaroid">
-                    <img src="pob_phoenix.png"/>
-                    <div class="caption">
-                        POB Phoenix
-                    </div>
-                </div>
-
-            </a>
-            <a class="card" href="http://torresbrothers.com" target="_blank">
-                <div class="polaroid">
-                    <img src="cobra.png"/>
-                    <div class="caption">
-                        Torres Brothers Garage
-                    </div>
-                </div>
-                
-            </a> 
-            <a class="card">
-                <div class="polaroid">
-                    <img src="openmediavault.png"/>
-                    <div class="caption">
-                        Home Media Server
-                    </div>
-                </div>
-
-            </a>
         </div>
       </div>
+      <div class="full-width">
+          <h1>
+              POB Phoenix
+          </h1>
+          <h3>
+          The POB Phoenix is a detailed and interactive personnel list for Arena Energy structures
+          </h3>
+          </div>
+      <div class="project-row">
+          
+          
+      <div >
+              <h2>Home Page</h2>
+          <img src="pob_home_page.png" class="cropped" alt="POB Phoenix home page"/>
+          <h2>Facility Page</h2>
+          <img src="pob_facility_page.png" class="cropped" alt="POB Phoenix facility page"/>
+</div>
+          
+                <div >
+                <h2>This list can be used to </h2>
+    <ul>Track man hours</ul>
+    <ul>Assist with transportation</ul>
+    <ul>Assess in case of an emergency</ul>
+    <h2>The stack used was</h2>
+    <ul>C#/.NET for the frontend and backend</ul>
+    <ul>Microsoft SQL Server for the database</ul>
+                  </div>
+          
+          
+          
+      </div>
+      
     </div>
+
   );
 }
 
