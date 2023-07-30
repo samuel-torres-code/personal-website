@@ -16,7 +16,7 @@ body {
 .container {
     display: flex;
     width: 95%;
-    height: 100vh;
+    min-height: 100vh;
     justify-content: space-between;
     margin: 0px auto;
 }
@@ -99,6 +99,7 @@ a:hover {
   .polaroid > img {
     max-width: 100%;
     height: auto;
+    border-radius: 50%;
   }
   .caption {
     font-family: 'Roboto Mono', 'Helvetica Neue', monospace;
